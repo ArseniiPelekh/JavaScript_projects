@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style type="text/css">
+        div {        
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div style="width: 400px; height: 400px;">
+        <div id="block1" style="background-color: Red;"></div>
+        <div id="block2" style="background-color: Green"></div>
+        <div id="block3" style="background-color: HotPink"></div>
+        <div id="block4" style="background-color: aqua;"></div>
+        <div id="block5" style="background-color: black"></div>
+        <div id="block6" style="background-color: blue"></div>
+        <div id="block7" style="background-color: brown;"></div>
+        <div id="block8" style="background-color: chartreuse"></div>
+        <div id="block9" style="background-color: darkmagenta"></div>
+    </div>
+    <script>
+        
+        function blockPosition(text) {
+            let leftPos = Rand();
+            let hightPos = Rand();
+
+            document.getElementById(text).style.left = leftPos + "%";
+            document.getElementById(text).style.marginTop = hightPos + "%";
+            console.log(leftPos + " - " + hightPos);
+        }
+
+        function Rand(){
+            return Math.floor(Math.random() * Math.floor(100));
+        }
+
+        window.onload = function () {
+            setInterval(function () {
+                blockPosition("block1");
+                blockPosition("block2");
+                blockPosition("block3");
+                blockPosition("block4");
+                blockPosition("block5");
+                blockPosition("block6");
+                blockPosition("block7");
+                blockPosition("block8");
+                blockPosition("block9");
+            }, 1000);
+        }
+
+    </script>
+</body>
+</html>

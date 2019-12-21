@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="text1">
+        
+		<span>Нажмите клавиши - B - R - G.</span>
+		
+		<p>    
+            Задание 1 
+            Разработайте страницу «текстовый редактор». На странице должно быть размешено поле ввода и кнопка «Сохранить» (фактического сохранения данных из поля ввода делать не надо). Если пользователь пытается закрыть окно браузера не «сохранив» данные в поле ввода, должно запускаться окно, которое потребует подтверждения операции закрытия окна. 
+        </p>
+        </div>
+    <div id="text2">
+        <p>
+            Задание 2 
+            Создайте страницу с несколькими блоками текста. Реализуйте обработчики событий таким образом, чтобы при нажатии на кнопку r – текст становился красного цвета, кнопка g сделает цвет текста зеленым, а b – синим. 
+        </p>
+    </div>
+    <div id="text3"> 
+        <p>           
+            Задание 3 
+            Сделайте кнопку с надписью «получить скидку». При наведение кнопка должна «убегать» от курсора не давая пользователю нажать себя. 
+        </p>
+    </div>
+    <div id="text4"> 
+        <p>       
+            Задание 4 
+            Разработайте страницу, которая будет выводить сообщение «сохранено» при нажатии на клавиши Ctrl + S, «выбрано все» при нажатии на Ctrl + A и «сохранено все» при нажатии на комбинацию Ctrl + Shift + S. 
+        </p>   
+    </div>
+
+////////////////
+    <script>
+        var text; 
+        
+        window.onload = function () {
+            var pTexts = document.getElementsByTagName("p");
+
+		document.addEventListener('keydown', function(event) {
+		  
+		  if (event.code == 'KeyR') {
+				textColor("red");
+			}
+			
+			if (event.code == 'KeyB') {
+				textColor("blue");
+			}
+			
+			if (event.code == 'KeyG') {
+				textColor("green");
+			}
+			
+			function textColor(tColor) {
+				for (var i = 0; i < pTexts.length; i++) {
+					pTexts[i].style.color = tColor;
+				}
+			};
+		});
+    }
+
+    </script>
+</body>
+</html>

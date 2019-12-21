@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Document</title>
+
+    <style type="text/css">
+        .divBlock {        
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            background-color: brown;
+            border: solid black 1px;
+        }
+
+        #divFixed {
+            position: fixed;
+            top: 600px;
+            right: 80px;
+            background-color: indianred;
+        }
+
+    </style>
+
+</head>
+<body>
+    <div class="divBlock" id="walkingBlock">
+    </div>
+    <div id="divFixed" >
+        <div style="text-align: center; ">
+            <button id="butUp" >Вверх</button></br> 
+            <button id="butLeft">Влево</button>
+            <button id="butRight">Впрaво</button></br>
+            <button id="butDown">Вниз</button>
+        </div>
+    </div>
+    
+    <script src="4module.js">
+    </script>
+<script>
+    window.onload = function () {
+        document.getElementById("butUp").onclick = function() {move2D(0, -1, 'walkingBlock');};
+        document.getElementById("butDown").onclick = function() {move2D(0, 1, 'walkingBlock');};
+        document.getElementById("butLeft").onclick = function() {move2D(-1, 0, 'walkingBlock');};
+        document.getElementById("butRight").onclick = function() {move2D(1, 0, 'walkingBlock');};
+    }
+</script>
+</body>
+</html>

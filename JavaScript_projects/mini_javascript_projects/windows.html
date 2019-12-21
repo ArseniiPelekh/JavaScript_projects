@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="windowButton1" onclick="openWindow(1)">1</button>
+    <button id="windowButton2" onclick="openWindow(2)">2</button>
+    <button id="windowButton3" onclick="openWindow(3)">3</button>
+    <script>
+        var w1, w2, w3;
+        var mas = ['window1.html', 'window2.html', 'window3.html' ];
+
+        const openWindow = (windowNumber) => {
+            if (!this['w' + windowNumber]) {
+                this['w' + windowNumber] = window.open(mas[windowNumber - 1], "Window Name", "width=400,height=400,status=yes,resizable=no");
+            } else if (document.getElementById('windowButton' + windowNumber).innerText === windowNumber + '(ОТКРЫТО)') {
+                this['w' + windowNumber].close();
+                document.getElementById('windowButton' + windowNumber).innerText = windowNumber;
+            }
+            else {
+                document.getElementById('windowButton' + windowNumber).innerText = windowNumber + '(ОТКРЫТО)';
+            }
+        }
+    </script>
+</body>
+
+</html>

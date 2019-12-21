@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>setInterval</title>
+    <script type="text/javascript">
+        window.onload = function () {
+
+            var counte = {
+                second: 0,
+                min: 0, 
+                hour: 0
+            } 
+            var intervalHandler;
+
+            function count(){
+                get("output").innerHTML = counte.hour + "-" + counte.min + "-" + counte.second;
+                counte.second++;
+                if(counte.second == 6000)
+                {
+                    counte.second = 0;
+                    counte.min++;
+                }
+                if(counte.min == 60)
+                {
+                    counte.min = 0;
+                    counte.hour++;
+                }
+            }
+
+            get("startButton").onclick = function () {
+                if(intervalHandler == undefined) {
+                    intervalHandler = setInterval(count, 5);
+                }else {
+                    get("timerWork").innerHTML = "Таймер работает";
+                }
+            }
+
+            get("stopButton").onclick = function () {
+                // останавливаем таймер, по которому вызывается функция count
+                clearInterval(intervalHandler);
+                intervalHandler = undefined;
+            }
+
+            get("droppingButton").onclick = function () {
+                // сброс таймер, по которому вызывается функция count
+                counte.second = 0;
+                counte.min = 0;
+                counte.hour = 0;
+
+                get("output").innerHTML = 0-0-0;
+
+                clearInterval(intervalHandler);
+                intervalHandler = undefined;
+                get("timerWork").innerHTML = "";
+
+            }
+        }
+
+        // пользовательская функция для получения элементов страницы по id
+        var get = function (id){
+            return document.getElementById(id);
+        }
+    </script>
+</head>
+<body>
+    <div id="timerWork"></div>  
+    <p id="output">0-0-0</p>
+
+    <input id="startButton" type="button" value="Start" />
+    <input id="stopButton" type="button" value="Stop" />
+    <input id="droppingButton" type="button" value="Dropping" />
+
+</body>
+</html>
