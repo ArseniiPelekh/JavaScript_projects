@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        .fon {
+            width: 500px;
+            height: 500px;
+            border: double 5px #0c9c0d; 
+        }
+
+        .button {
+            width: 70px;
+            height: 30px;
+            position: relative;
+            display: inline-block;
+            font-family: Arial,Helvetica,FreeSans,"Liberation Sans","Nimbus Sans L",sans-serif;
+            font-size: 10px;
+            font-weight: 300;
+            color: rgb(245,245,245);
+            text-shadow: 0 -1px rgba(0,0,0,.1);
+            text-decoration: none;
+            user-select: none;
+            padding: .3em 1em;
+            outline: none;
+            border: none;
+            border-radius: 2px;
+            background: #0c9c0d linear-gradient(#82d18d, #0c9c0d);
+            box-shadow: inset #72de26 0 -1px 1px, inset 0 1px 1px #98ff98, #3caa3c 0 0 0 1px, rgba(0,0,0,.3) 0 2px 5px;
+            -webkit-animation: pulsate 1.2s linear infinite;
+            animation: pulsate 1.2s linear infinite;
+        }
+    </style> 
+</head>
+<body>
+    <div class="fon">
+        <button id="bDiscount" class="button" style="position: absolute">Получить скидку</button>
+    </div>
+    <script>
+        var bDiscount;
+        window.onload = function() {
+            bDiscount = document.getElementById("bDiscount");
+            bDiscount.style.top = "15px";
+            bDiscount.style.left = "15px";
+
+                bDiscount.addEventListener("mouseover", function() {
+                    moved2d("bDiscount");
+                });
+            }
+
+            function moved2d(blockSelector){
+
+                var yPos = bDiscount.style.top;
+                var xPos = bDiscount.style.left;
+
+                var yTryPos, xTryPos;
+
+                while(true)
+                {
+
+                    yTryPos = RandomPosition(15, 450); 
+                    xTryPos = RandomPosition(15, 440);
+
+                    if(!(yTryPos === yPos))
+                        if(!(xTryPos === xPos))
+                            break;
+                }
+                bDiscount.style.top = yTryPos;
+                bDiscount.style.left = xTryPos;
+            }
+
+        function RandomPosition(min, max) {
+            return ((Math.floor(Math.random() * Math.floor(max - min + 1)) + min) + "px");
+        }
+
+    </script>
+</body>
+</html>
